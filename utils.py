@@ -6,7 +6,7 @@ import time
 class Sprite():
     def __init__(self, screen, direction, dir, x_pos, y_pos, spd):
         fname = direction
-        self.car_img = pygame.image.load(f"assets/sprites/street/{fname}/car1.png").convert()
+        self.car_img = pygame.image.load(f"sprites/street/{fname}/car1.png").convert()
         self.car_img.set_colorkey((0,0,0))
         self.car_x = x_pos
         self.car_dir = dir
@@ -37,7 +37,7 @@ class Sprite():
     def check_for_collisions(self,background, scr, other_car_list):
         #says game over when the frog died
         def make_splash_screen(background, scr):
-            custom_font = pygame.font.Font('assets/texascrust.ttf', 128)
+            custom_font = pygame.font.Font('texascrust.ttf', 128)
             text = custom_font.render('Game Over', False, (255, 69, 0))
             scr.blit(background, (0, 0))
             scr.blit(text,
@@ -56,7 +56,7 @@ class Sprite():
 
         # Check me against all the list of fish of rectangles.
         indices_0 = my_rect.collidelistall(other_car_rect_list)
-        oh_no = pygame.mixer.Sound("assets/losemusic.mp3")
+        oh_no = pygame.mixer.Sound("losemusic.mp3")
         if len(indices_0) > 0:
             make_splash_screen(background, scr)
             oh_no.play()
@@ -73,7 +73,7 @@ class Frog(Sprite):
         self.key_right = 'not pressed'
         self.frog_x = frog_x
         self.frog_y = frog_y
-        self.frog_img = pygame.image.load('assets/sprites/frog/up.png').convert()
+        self.frog_img = pygame.image.load('sprites/frog/up.png').convert()
         self.frog_img.set_colorkey((0,0,0))
         self.y_bnd = screen.get_height()
         self.x_bnd = screen.get_width()
@@ -88,43 +88,43 @@ class Frog(Sprite):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
                     self.key_up = 'pressed'
-                    self.frog_img = pygame.image.load('assets/sprites/frog/move_up.png')
+                    self.frog_img = pygame.image.load('sprites/frog/move_up.png')
                     self.frog_img.set_colorkey((0,0,0))
 
                 if event.key == pygame.K_DOWN:
                     self.key_down = 'pressed'
-                    self.frog_img = pygame.image.load('assets/sprites/frog/move_down.png')
+                    self.frog_img = pygame.image.load('sprites/frog/move_down.png')
                     self.frog_img.set_colorkey((0, 0, 0))
 
                 if event.key == pygame.K_LEFT:
                     self.key_left = 'pressed'
-                    self.frog_img = pygame.image.load('assets/sprites/frog/move_left.png')
+                    self.frog_img = pygame.image.load('sprites/frog/move_left.png')
                     self.frog_img.set_colorkey((0, 0, 0))
 
                 if event.key == pygame.K_RIGHT:
                     self.key_right = 'pressed'
-                    self.frog_img = pygame.image.load('assets/sprites/frog/move_right.png')
+                    self.frog_img = pygame.image.load('sprites/frog/move_right.png')
                     self.frog_img.set_colorkey((0, 0, 0))
 
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP:
                     self.key_up = 'not pressed'
-                    self.frog_img = pygame.image.load('assets/sprites/frog/up.png').convert()
+                    self.frog_img = pygame.image.load('sprites/frog/up.png').convert()
                     self.frog_img.set_colorkey((0, 0, 0))
 
                 if event.key == pygame.K_DOWN:
                     self.key_down = 'not pressed'
-                    self.frog_img = pygame.image.load('assets/sprites/frog/down.png')
+                    self.frog_img = pygame.image.load('sprites/frog/down.png')
                     self.frog_img.set_colorkey((0, 0, 0))
 
                 if event.key == pygame.K_LEFT:
                     self.key_left = 'not pressed'
-                    self.frog_img = pygame.image.load('assets/sprites/frog/left.png')
+                    self.frog_img = pygame.image.load('sprites/frog/left.png')
                     self.frog_img.set_colorkey((0, 0, 0))
 
                 if event.key == pygame.K_RIGHT:
                     self.key_right = 'not pressed'
-                    self.frog_img = pygame.image.load('assets/sprites/frog/right.png')
+                    self.frog_img = pygame.image.load('sprites/frog/right.png')
                     self.frog_img.set_colorkey((0, 0, 0))
 
         # Update frogger based on status of keys.
@@ -167,9 +167,9 @@ class Frog(Sprite):
 #sets background
 def make_background(surface):
     # Load the images.
-    road = pygame.image.load('assets/sprites/street/road.png').convert()
+    road = pygame.image.load('sprites/street/road.png').convert()
     road.set_colorkey((0,0,0))
-    grass = pygame.image.load('assets/grass.png').convert()
+    grass = pygame.image.load('grass.png').convert()
     grass.set_colorkey((0,0,0))
 
 
@@ -194,7 +194,7 @@ class Home():
     def __init__(self, screen, home_x, home_y):
 
 
-        self.home_img = pygame.image.load('assets/sprites/home.png').convert()
+        self.home_img = pygame.image.load('sprites/home.png').convert()
         self.home_img.set_colorkey((0,0,0))
         self.home_x = home_x
         self.home_y = home_y
@@ -214,7 +214,7 @@ class Home():
         did_collide = home_rect.colliderect(frogger_rect)
 
 
-        flag_sfx = pygame.mixer.Sound("assets/flag.mp3")
+        flag_sfx = pygame.mixer.Sound("flag.mp3")
         #do these things if the frog has hit the flag
         if did_collide:
             self.counter= self.counter+1

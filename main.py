@@ -33,7 +33,7 @@ house = Home(scr, 400, 30)
 clock = pygame.time.Clock()
 
 mixer.init()
-mixer.music.load('assets/arcadia.ogg')
+mixer.music.load('arcadia.ogg')
 mixer.music.play()
 
 #set up background
