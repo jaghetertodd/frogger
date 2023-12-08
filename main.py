@@ -1,8 +1,8 @@
 #citing ChatGPT for suggestions on how to display a running score
 from pygame import mixer
+import pygame
 import time
 
-from utils import *
 from utils import *
 
 #start game
